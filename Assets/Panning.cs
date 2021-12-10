@@ -12,7 +12,7 @@ public class Panning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rotation = new Vector3();
+        rotation = transform.rotation.eulerAngles;
     }
 
     // Update is called once per frame
