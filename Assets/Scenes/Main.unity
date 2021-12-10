@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanningSpeed: 10
-  RotationSpeed: 30
+  RotationSensitivity: 3
 --- !u!114 &89280784
 MonoBehaviour:
   m_ObjectHideFlags: 0
