@@ -12,12 +12,12 @@ public class MenuListener : MonoBehaviour
 
     public void LoadSavedSystemsListScene()
     {
-        Debug.Log("Load Saved Systems Here");
+        SceneManager.LoadScene("SystemList");
     }
 
     public void LoadOptionsScene()
     {
-        Debug.Log("Load Options Scene Here");
+        SceneManager.LoadScene("Options");
     }
 
     public void ExitGame()
