@@ -223,7 +223,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanningSpeed: 400
-  RotationSensitivity: 3
+  RotationSensitivity: 40
+  ZoomSpeed: 3000
+  MinFOV: 20
+  MaxFOV: 130
 --- !u!114 &89280784
 MonoBehaviour:
   m_ObjectHideFlags: 0
