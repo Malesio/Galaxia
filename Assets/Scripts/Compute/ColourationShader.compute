@@ -1,0 +1,85 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+#include "SimplexNoise.compute"
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+RWBuffer<float2> NoiseMap;
+
+struct NoiseProperties
+{
+    float Strength;
+    float Roughness;
+    int Octaves;
+    float Persistence;
+    float Lacunarity;
+    bool IsSteep;
+    int Sharpness;
+    float WeightFactor;
+    float3 Centre;
+    bool Enabled;
+};
+
+Buffer<float3> Vertices;
+bool FirstLayerIsMask;
+int LayerCount;
+StructuredBuffer<NoiseProperties> Layers;
+
+float applyNoiseFilter(int layerIndex, float3 p)
+{
+    if (!Layers[layerIndex].Enabled)
+    {
+        return 0.0;
+    }
+
+    float outValue = 0.0;
+    float octaveFreq = Layers[layerIndex].Roughness / 1000;
+    float octaveAmp = 1;
+    float weight = 1;
+
+    for (int i = 0; i < Layers[layerIndex].Octaves; i++)
+    {
+        float octaveValue = snoise(octaveFreq * p + Layers[layerIndex].Centre);
+        if (Layers[layerIndex].IsSteep)
+        {
+            octaveValue = pow(abs(1 - abs(octaveValue)), Layers[layerIndex].Sharpness);
+
+            octaveValue *= weight;
+            weight *= saturate(octaveValue * Layers[layerIndex].WeightFactor);
+        }
+
+        outValue += octaveValue * octaveAmp;
+
+        octaveFreq *= Layers[layerIndex].Lacunarity;
+        octaveAmp *= Layers[layerIndex].Persistence;
+    }
+
+    return outValue * Layers[layerIndex].Strength;
+}
+
+float computeNoiseAtPoint(float3 p)
+{
+    float finalValue = 0.0;
+    float firstLayer = 0.0;
+
+    if (LayerCount > 0)
+    {
+        firstLayer = applyNoiseFilter(0, p);
+        finalValue = firstLayer;
+    }
+
+    for (int i = 1; i < LayerCount; i++)
+    {
+        float mask = FirstLayerIsMask ? firstLayer : 1.0;
+        finalValue += applyNoiseFilter(i, p) * mask;
+    }
+
+    return finalValue;
+}
+
+[numthreads(20,1,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    NoiseMap[id.x] = float2(computeNoiseAtPoint(Vertices[id.x]), 0);
+}

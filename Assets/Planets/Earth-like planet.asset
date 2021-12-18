@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599918669c9e85447af492924b59d662, type: 3}
+  m_Name: Earth-like planet
+  m_EditorClassIdentifier: 
+  Resolution: 139
+  Radius: 40
+  BaseMaterial: {fileID: 2100000, guid: 2b2ef6fdaf9e94e4d844bcb6afbd78d2, type: 2}
+  ComputeShader: {fileID: 7200000, guid: 1b0b930fdd870cb4daada660e2e1384b, type: 3}
+  ColorGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 0.009470814, b: 0.6037736, a: 1}
+    key1: {r: 0.05234427, g: 0.07944916, b: 0.99248344, a: 1}
+    key2: {r: 0.102972336, g: 0.13994932, b: 0.9852133, a: 0}
+    key3: {r: 0.19708972, g: 0.25241888, b: 0.9716981, a: 0}
+    key4: {r: 0.98665506, g: 1, b: 0.2971698, a: 0}
+    key5: {r: 0.35734013, g: 1, b: 0.3066038, a: 0}
+    key6: {r: 0.4528302, g: 0.36514497, b: 0.30971876, a: 0}
+    key7: {r: 1, g: 1, b: 1, a: 0}
+    ctime0: 0
+    ctime1: 17926
+    ctime2: 23130
+    ctime3: 34310
+    ctime4: 36623
+    ctime5: 42212
+    ctime6: 60138
+    ctime7: 65535
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
+  noiseSourceType: 1
+  FirstLayerIsMask: 1
+  NoiseLayers:
+  - Enabled: 1
+    Properties:
+      FilterType: 0
+      Strength: 1
+      Roughness: 10
+      Offset: {x: 1.27, y: -21.71, z: 3.71}
+      Octaves: 17
+      Lacunarity: 2.92
+      Persistence: 0.788
+      Threshold: 0.09
+      WeightFactor: 0.224
+      Sharpness: 2
+  - Enabled: 1
+    Properties:
+      FilterType: 1
+      Strength: 10
+      Roughness: 50
+      Offset: {x: 0.11, y: -2.37, z: 0.01}
+      Octaves: 13
+      Lacunarity: 6.82
+      Persistence: 0.267
+      Threshold: 0.35
+      WeightFactor: 0.406
+      Sharpness: 4

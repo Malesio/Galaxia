@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599918669c9e85447af492924b59d662, type: 3}
+  m_Name: Volcanic planet
+  m_EditorClassIdentifier: 
+  Resolution: 159
+  Radius: 25
+  BaseMaterial: {fileID: 2100000, guid: 2b2ef6fdaf9e94e4d844bcb6afbd78d2, type: 2}
+  ComputeShader: {fileID: 7200000, guid: 1b0b930fdd870cb4daada660e2e1384b, type: 3}
+  ColorGradient:
+    serializedVersion: 2
+    key0: {r: 0.7830189, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0.37434316, b: 0, a: 1}
+    key2: {r: 0.735849, g: 0.08677464, b: 0.22015703, a: 0}
+    key3: {r: 0.990566, g: 0.89770263, b: 0.4999555, a: 0}
+    key4: {r: 0.4339623, g: 0.3827875, b: 0.39302245, a: 0}
+    key5: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 13107
+    ctime2: 23516
+    ctime3: 32960
+    ctime4: 52043
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
+  noiseSourceType: 1
+  FirstLayerIsMask: 1
+  NoiseLayers:
+  - Enabled: 1
+    Properties:
+      FilterType: 0
+      Strength: 1.5
+      Roughness: 9.96
+      Offset: {x: 3.42, y: 0.84, z: 0.57}
+      Octaves: 7
+      Lacunarity: 1.99
+      Persistence: 0.806
+      Threshold: 0
+      WeightFactor: 0
+      Sharpness: 0
+  - Enabled: 1
+    Properties:
+      FilterType: 1
+      Strength: 5.9
+      Roughness: 58.81
+      Offset: {x: 3.42, y: 1.5, z: 0.57}
+      Octaves: 10
+      Lacunarity: 1.99
+      Persistence: 0.806
+      Threshold: 0
+      WeightFactor: 0.696
+      Sharpness: 4
